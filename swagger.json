@@ -1,0 +1,244 @@
+{
+  "failOnErrors": "true",
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Orçamento Pessoal",
+    "description": "Orçamento Pessoal API",
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    },
+    "version": "1.0.0"
+  },
+  "paths": {},
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    },
+    "schemas": {
+      "Retorno": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string"
+          }
+        }
+      },
+      "Usuario": {
+        "type": "object",
+        "required": ["email", "nome", "senha"],
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "nome": {
+            "type": "string"
+          },
+          "sobrenome": {
+            "type": "string"
+          },
+          "senha": {
+            "type": "string"
+          }
+        }
+      },
+      "Credenciais": {
+        "type": "object",
+        "required": ["email", "senha"],
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "senha": {
+            "type": "string"
+          }
+        }
+      },
+      "Login": {
+        "type": "object",
+        "required": ["email", "nome", "senha"],
+        "properties": {
+          "_id": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "nome": {
+            "type": "string"
+          },
+          "sobrenome": {
+            "type": "string"
+          },
+          "token": {
+            "type": "string"
+          }
+        }
+      },
+      "Categoria": {
+        "type": "object",
+        "required": ["nome"],
+        "properties": {
+          "nome": {
+            "type": "string"
+          },
+          "descricao": {
+            "type": "string"
+          }
+        }
+      },
+      "CategoriaDb": {
+        "type": "object",
+        "required": ["nome"],
+        "properties": {
+          "_id": {
+            "type": "string"
+          },
+          "nome": {
+            "type": "string"
+          },
+          "descricao": {
+            "type": "string"
+          },
+          "__v": {
+            "type": "number"
+          }
+        }
+      },
+      "Receita": {
+        "type": "object",
+        "required": ["data", "valor"],
+        "properties": {
+          "data": {
+            "type": "string",
+            "format": "date"
+          },
+          "valor": {
+            "type": "number"
+          },
+          "descricao": {
+            "type": "string"
+          },
+          "categoriaId": {
+            "type": "string"
+          }
+        }
+      },
+      "ReceitaDb": {
+        "type": "object",
+        "required": ["data", "valor", "usuarioId"],
+        "properties": {
+          "_id": {
+            "type": "string"
+          },
+          "data": {
+            "type": "string",
+            "format": "date"
+          },
+          "valor": {
+            "type": "number"
+          },
+          "descricao": {
+            "type": "string"
+          },
+          "usuarioId": {
+            "type": "string"
+          },
+          "categoriaId": {
+            "type": "string"
+          },
+          "categoriaNome": {
+            "type": "string"
+          },
+          "__v": {
+            "type": "number"
+          }
+        }
+      },
+      "Despesa": {
+        "type": "object",
+        "required": ["data", "valor"],
+        "properties": {
+          "data": {
+            "type": "string",
+            "format": "date"
+          },
+          "valor": {
+            "type": "number"
+          },
+          "descricao": {
+            "type": "string"
+          },
+          "categoriaId": {
+            "type": "string"
+          }
+        }
+      },
+      "DespesaDb": {
+        "type": "object",
+        "required": ["data", "valor", "usuarioId"],
+        "properties": {
+          "_id": {
+            "type": "string"
+          },
+          "data": {
+            "type": "string",
+            "format": "date"
+          },
+          "valor": {
+            "type": "number"
+          },
+          "descricao": {
+            "type": "string"
+          },
+          "usuarioId": {
+            "type": "string"
+          },
+          "categoriaId": {
+            "type": "string"
+          },
+          "categoriaNome": {
+            "type": "string"
+          },
+          "__v": {
+            "type": "number"
+          }
+        }
+      },
+      "ChartParams": {
+        "type": "object",
+        "required": ["startDate", "endDate"],
+        "properties": {
+          "startDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "endDate": {
+            "type": "string",
+            "format": "date"
+          }
+        }
+      },
+      "ChartData": {
+        "type": "object",
+        "required": ["group", "value"],
+        "properties": {
+          "group": {
+            "type": "string"
+          },
+          "date": {
+            "type": "string",
+            "format": "date"
+          },
+          "value": {
+            "type": "number"
+          }
+        }
+      }
+    }
+  }
+}
